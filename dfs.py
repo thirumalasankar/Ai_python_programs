@@ -9,11 +9,13 @@ found=False
 def bfs(node):
     if node not in openList:
         openList.append(node)
+    print(openList,end=' ')
+    print(closedList)
     while len(openList)!=0:
         #for BFS---
-        #s=openList.pop(0)
+        s=openList.pop(0)
         #for DFS---
-        s=openList.pop(len(openList)-1)
+        #s=openList.pop(len(openList)-1)
         if s not in closedList:
             closedList.append(s)
         for neighbour in graph[s]:
@@ -29,18 +31,27 @@ if goalFound:
     print(f"the goalstate: {goalNode} is found")
 else:
     print(f"the goalstate: {goalNode} is not found")
+
     
     
-"""OUTPUT:--
+"""output:--
+
 
 A
 J
+['A'] []
 ['B', 'C', 'D'] ['A']
-['B', 'C'] ['A', 'D']
-['B', 'F', 'G'] ['A', 'D', 'C']
-['B', 'F'] ['A', 'D', 'C', 'G']
-['B', 'J'] ['A', 'D', 'C', 'G', 'F']
-['B'] ['A', 'D', 'C', 'G', 'F', 'J']
+['C', 'D', 'E', 'F'] ['A', 'B']
+['D', 'E', 'F', 'F', 'G'] ['A', 'B', 'C']
+['E', 'F', 'F', 'G'] ['A', 'B', 'C', 'D']
+['F', 'F', 'G', 'H', 'I'] ['A', 'B', 'C', 'D', 'E']
+['F', 'G', 'H', 'I', 'J'] ['A', 'B', 'C', 'D', 'E', 'F']
+['G', 'H', 'I', 'J', 'J'] ['A', 'B', 'C', 'D', 'E', 'F']
+['H', 'I', 'J', 'J'] ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+['I', 'J', 'J'] ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+['J', 'J'] ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
+['J'] ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
 the goalstate: J is found
 
 """
+
