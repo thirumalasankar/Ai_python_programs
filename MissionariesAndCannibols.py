@@ -36,7 +36,7 @@ class mandc:
                 break
             #left to right rules boat moving rules
             if lb==1:
-                if lm-2 >=0 and rm+2>=rc and rm<=3:
+                if lm-2 >=0 and rm+2>=rc and rm+2<=3:
                     if lm-2==0 or lm-2>=lc:
                         if ([lm-2,lc,0],[rm+2,rc,1]) not in closed:
                             open.append(([lm-2,lc,0],[rm+2,rc,1]))
@@ -47,7 +47,7 @@ class mandc:
                     if rm==0 or rc+2<=rm :
                         if ([lm,lc-2,0],[rm,rc+2,1]) not in closed:
                             open.append(([lm,lc-2,0],[rm,rc+2,1]))
-                if lm-1>=0 and rm+1>=rc and rm<=3:
+                if lm-1>=0 and rm+1>=rc and rm+1<=3:
                     if lm-1==0 or lm-1>=lc:
                         if ([lm-1,lc,0],[rm+1,rc,1]) not in closed:
                             open.append(([lm-1,lc,0],[rm+1,rc,1]))
@@ -72,7 +72,6 @@ class mandc:
                     if rm-1==0 or rm-1>=rc:
                         if ([lm+1,lc,1],[rm-1,rc,0]) not in closed:
                             open.append(([lm+1,lc,1],[rm-1,rc,0]))
-                            #closed.append(([lm+1,lc,1],[rm-1,rc,0]))
                 if rc-1>=0 and lc+1<=3 :
                     if lm==0 or lc+1<=lm:
                         if ([lm,lc+1,1],[rm,rc-1,0]) not in closed:
